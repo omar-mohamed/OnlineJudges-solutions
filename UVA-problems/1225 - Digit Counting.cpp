@@ -19,37 +19,44 @@
 //#include <cstdlib>
 //#include <ctime>
 //#include<unordered_map>
+//#include<limits.h>
 //#include<string>
 //#include<string.h>
 //#pragma warning(disable: 4996)
 //using namespace std;
-//typedef long long ll;
+//typedef unsigned long long ll;
+//
+//int arr[10];
+//
+//void countDigits(int num)
+//{
+//	while (num)
+//	{
+//		int n = num % 10;
+//		arr[n]++;
+//		num /= 10;
+//	}
+//}
 //
 //int main()
 //{
-//	int t,n;
-//	ll sum,ans;
+//	int t;
 //	cin >> t;
+//	int n;
 //	while (t--)
 //	{
-//		sum = 0;
 //		cin >> n;
-//		vector<ll> coins(n);
-//		for (int i = 0; i < n; i++)
-//			cin >> coins[i];
-//		
-//		ans = 0;
-//		sum = 0;
-//		for (int i = 0; i < n; i++)
-//		{
-//			sum += coins[i];
-//			if (i == n - 1 || sum < coins[i + 1])
-//				ans++;
-//			else
-//				sum -= coins[i];
+//		memset(arr, 0, sizeof(arr));
+//		for (int i = 1; i <= n;i++)
+//		{ 
+//			countDigits(i);
 //		}
-//		cout << ans << endl;
+//		for (int i = 0; i < 10; i++)
+//		{
+//			cout << arr[i];
+//			if (i != 9)
+//				cout << " ";
+//		}
+//		cout << endl;
 //	}
-//	return 0;
 //}
-//

@@ -26,50 +26,76 @@
 //using namespace std;
 //typedef long long ll;
 //
-//vector<int> path;
-//int dp[1000][1000];
-//int arr[1000];
-//int n;
-//int solve(int index, int prev)
-//{
-//	if (index == n)
-//		return 0;
-//	if (dp[index][prev] != -1)
-//		return dp[index][prev];
-//	int leave = solve(index + 1, prev);
-//	int take = 0;
-//	if (arr[index] > arr[prev])
-//		take = solve(index + 1, index)+1;
-//	return dp[index][prev] = max(take, leave);
-//}
+//vector<ll> v(1000000);
 //
-//void construct(int index, int prev)
+////-3
+////-4
+////-2
+////0
+////8
+////5
+////1
+////-1
+////11
+////15
+////8
+////4
+////-1
+////2
+////7
+////2
+////7
+////456
+////3568
+////234
+////5
+////234
+////234523
+////6
+//
+//vector<int> LIS(int n)
 //{
-//	if (index == n)
-//		return;
-//	int leave = solve(index + 1, prev);
-//	int take = 0;
-//	if (arr[index] > arr[prev])
-//		take = solve(index + 1, index) + 1;
-//	if (take > leave)
+//	vector<int> parent(n);
+//	vector<int> IS(n+1);
+//	int length = 0;
+//	for (int i = 0; i < n; i++)
 //	{
-//		path.push_back(arr[index]);
-//		construct(index + 1, index);
+//		int low = 1;
+//		int high = length;
+//		while (low <= high)
+//		{
+//			int mid = ceil((low + high) / 2);
+//			if (v[IS[mid]] < v[i])
+//				low = mid + 1;
+//			else
+//				high = mid - 1;
+//		}
+//		int pos = low;
+//		parent[i] = IS[pos - 1];
+//		IS[pos] = i;
+//		length = max(length, pos);
 //	}
-//	else
-//		construct(index + 1, prev);
+//	int k = IS[length];
+//	vector<int> vv(length);
+//
+//	for (int i = length-1; i >= 0; i--)
+//	{
+//		vv[i]=k;
+//		k = parent[k];
+//	}
+//	cout << length << endl;
+//	cout << "-" << endl;
+//	return vv;
 //}
 //
+//
+////3 1 5 2 6 4 9
 //int main()
 //{
-//	arr[0] = INT_MIN;
-//	n = 1;
-//	memset(dp, -1, sizeof(dp));
-//	while (cin >> arr[n++]){}
-//	cout << solve(1, 0) << endl;
-//	cout << "-\n";
-//	construct(1, 0);
-//	for (int i = 0; i < path.size(); i++)
-//		cout << path[i] << endl;
+//	int n = 0;
+//	while (cin >> v[n++]) {  }
+//	vector<int> ans=LIS(n);
+//	for (int i = 0; i <ans.size(); i++)
+//		cout << v[ans[i]] << endl;
 //	return 0;
 //}

@@ -27,29 +27,41 @@
 //
 //int main()
 //{
-//	int t,n;
-//	ll sum,ans;
-//	cin >> t;
-//	while (t--)
+//	int n, m,tmp;
+//	while (cin >> n >> m)
 //	{
-//		sum = 0;
-//		cin >> n;
-//		vector<ll> coins(n);
-//		for (int i = 0; i < n; i++)
-//			cin >> coins[i];
-//		
-//		ans = 0;
-//		sum = 0;
+//		bool amg = false;
+//		bool imp = false;
+//		vector<vector<int> > v(100001);
+//		vector<int> ans;
 //		for (int i = 0; i < n; i++)
 //		{
-//			sum += coins[i];
-//			if (i == n - 1 || sum < coins[i + 1])
-//				ans++;
-//			else
-//				sum -= coins[i];
+//			cin >> tmp;
+//			v[tmp].push_back(i);
 //		}
-//		cout << ans << endl;
+//
+//		for (int i = 0; i < m; i++)
+//		{
+//			cin >> tmp;
+//			if (v[tmp].empty())
+//				imp = true;
+//			else if (v[tmp].size()>1)
+//				amg = true;
+//			else
+//				ans.push_back(v[tmp][0]+1);
+//
+//		}
+//		if (imp)
+//			cout << "Impossible\n";
+//		else if (amg)
+//			cout << "Ambiguity\n";
+//		else
+//		{
+//			cout << "Possible\n";
+//			for (int i = 0; i < ans.size(); i++)
+//				cout << ans[i] << " ";
+//			cout << endl;
+//		}
 //	}
 //	return 0;
 //}
-//

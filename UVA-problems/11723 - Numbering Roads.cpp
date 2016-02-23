@@ -19,37 +19,34 @@
 //#include <cstdlib>
 //#include <ctime>
 //#include<unordered_map>
+//#include<limits.h>
 //#include<string>
 //#include<string.h>
 //#pragma warning(disable: 4996)
 //using namespace std;
-//typedef long long ll;
+//typedef unsigned long long ll;
+//
 //
 //int main()
 //{
-//	int t,n;
-//	ll sum,ans;
-//	cin >> t;
-//	while (t--)
+//	int n, d;
+//	int t=1;
+//	while (cin >> n >> d)
 //	{
-//		sum = 0;
-//		cin >> n;
-//		vector<ll> coins(n);
-//		for (int i = 0; i < n; i++)
-//			cin >> coins[i];
-//		
-//		ans = 0;
-//		sum = 0;
-//		for (int i = 0; i < n; i++)
-//		{
-//			sum += coins[i];
-//			if (i == n - 1 || sum < coins[i + 1])
-//				ans++;
-//			else
-//				sum -= coins[i];
-//		}
-//		cout << ans << endl;
-//	}
-//	return 0;
-//}
+//		if (n == 0 && d == 0)
+//			break;
+//		double x = n / (double)d;
 //
+//		double diff = x - (int)x;
+//		cout << "Case " << t++ << ": ";
+//		if ((int)x > 26)
+//		{
+//			cout << "impossible" << endl;
+//			continue;
+//		}
+//		if (diff > 0)
+//			cout << (int)x << endl;
+//		else
+//			cout << (int)x-1  << endl;
+//	}
+//}

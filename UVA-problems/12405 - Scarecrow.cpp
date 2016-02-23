@@ -19,6 +19,7 @@
 //#include <cstdlib>
 //#include <ctime>
 //#include<unordered_map>
+//#include<limits.h>
 //#include<string>
 //#include<string.h>
 //#pragma warning(disable: 4996)
@@ -28,28 +29,27 @@
 //int main()
 //{
 //	int t,n;
-//	ll sum,ans;
+//	char arr[111];
 //	cin >> t;
-//	while (t--)
+//	for (int c = 1; c <= t; c++)
 //	{
-//		sum = 0;
 //		cin >> n;
-//		vector<ll> coins(n);
 //		for (int i = 0; i < n; i++)
-//			cin >> coins[i];
-//		
-//		ans = 0;
-//		sum = 0;
-//		for (int i = 0; i < n; i++)
+//			cin >> arr[i];
+//		arr[n] = ' ';
+//		arr[n + 1] = ' ';
+//		arr[n + 2] = ' ';
+//		arr[n + 3] = ' ';
+//		int ans = 0;
+//		for (int i = 0; i < n; i ++)
 //		{
-//			sum += coins[i];
-//			if (i == n - 1 || sum < coins[i + 1])
-//				ans++;
-//			else
-//				sum -= coins[i];
+//			if (arr[i] == '.')
+//			{
+//				i += 2;
+//				ans += 1;
+//			}
 //		}
-//		cout << ans << endl;
+//		cout << "Case " << c << ": "<<ans<<endl;
 //	}
 //	return 0;
 //}
-//

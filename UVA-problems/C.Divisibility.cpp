@@ -19,6 +19,7 @@
 //#include <cstdlib>
 //#include <ctime>
 //#include<unordered_map>
+//#include<limits.h>
 //#include<string>
 //#include<string.h>
 //#pragma warning(disable: 4996)
@@ -27,29 +28,35 @@
 //
 //int main()
 //{
-//	int t,n;
-//	ll sum,ans;
-//	cin >> t;
-//	while (t--)
+//	ll k, a, b,tmpA;
+//	
+//	while (cin >> k >> a >> b)
 //	{
-//		sum = 0;
-//		cin >> n;
-//		vector<ll> coins(n);
-//		for (int i = 0; i < n; i++)
-//			cin >> coins[i];
-//		
-//		ans = 0;
-//		sum = 0;
-//		for (int i = 0; i < n; i++)
+//		if (a < 0 && b < 0)
 //		{
-//			sum += coins[i];
-//			if (i == n - 1 || sum < coins[i + 1])
-//				ans++;
-//			else
-//				sum -= coins[i];
+//			swap(a, b);
+//			a = -a;
+//			b = -b;
 //		}
-//		cout << ans << endl;
+//		b /= k;
+//		tmpA = a / k;
+//		if (tmpA*k != a)
+//		{
+//			if (a < 0)
+//			{
+//				a = tmpA - 1;
+//				cout << b - a<< endl;
+//			}
+//			else
+//			{
+//				a = tmpA + 1;
+//				cout << b - a + 1 << endl;
+//			}
+//		}
+//		else 
+//		{
+//			a = tmpA;
+//			cout << b - a + 1 << endl;
+//		}
 //	}
-//	return 0;
 //}
-//

@@ -19,37 +19,28 @@
 //#include <cstdlib>
 //#include <ctime>
 //#include<unordered_map>
+//#include<limits.h>
 //#include<string>
 //#include<string.h>
 //#pragma warning(disable: 4996)
 //using namespace std;
-//typedef long long ll;
+//typedef unsigned long long ll;
 //
 //int main()
 //{
-//	int t,n;
-//	ll sum,ans;
-//	cin >> t;
-//	while (t--)
-//	{
-//		sum = 0;
-//		cin >> n;
-//		vector<ll> coins(n);
-//		for (int i = 0; i < n; i++)
-//			cin >> coins[i];
-//		
-//		ans = 0;
-//		sum = 0;
-//		for (int i = 0; i < n; i++)
-//		{
-//			sum += coins[i];
-//			if (i == n - 1 || sum < coins[i + 1])
-//				ans++;
-//			else
-//				sum -= coins[i];
-//		}
-//		cout << ans << endl;
-//	}
-//	return 0;
-//}
+//	int n, k;
+//  //  freopen("out.txt", "w", stdout);
 //
+//	while (cin >> n >> k)
+//	{
+//		int sum = n;
+//		while (n>=k)
+//		{
+//			int div = (n / k) ;
+//			int mod = n%k;
+//			sum +=div;
+//			n = div + mod;
+//		}
+//		cout << sum << endl;
+//	}
+//}
