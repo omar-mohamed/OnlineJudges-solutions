@@ -27,16 +27,6 @@
 //typedef unsigned long long ll;
 //int INF = 1000000;
 //
-//
-////find first mask of ones bigger than u
-////turn off the ones in the ones position in n but no undershooting
-////try to close the first 1 to make it in the range //repeat
-//
-//ll getBit(ll bitmask, int index)
-//{
-//	return ((bitmask >> index) & 1);
-//}
-//
 //ll setBit(ll bitmask, int index,int val)
 //{
 //	if (val == 1)
@@ -51,112 +41,40 @@
 //	}
 //}
 //
-//ll underShoot(ll num,int index,ll l)
+//ll getBit(ll bitmask, int index)
 //{
-//	for (int i = 0; i <= index; i++)
-//	{
-//		if (getBit(num, i) == 1)
-//		{
-//			ll candidate = setBit(num, i, 0);
-//			//if (candidate >= l)
-//			//{
-//				num = candidate;
-//				break;
-//		//	}
-//		}
-//	}
-//	return num;
+//	return ((bitmask >> index) & 1);
 //}
 //
-//
-//ll closeOnesinn(ll num, int index,ll n,ll u ,ll l)
+//ll oneBits(ll bitmask, int index)
 //{
-//	for (int i = index; i >= 0; i--)
-//	{
-//		if (getBit(n, i) == 1 && getBit(num, i) == 1)
-//		{
-//			if (setBit(num, i, 0) <= u&&setBit(num, i, 0) >= l)
-//				num = setBit(num, i, 0);
-//		}
-//	}
-//	return num;
+//	ll ones= (bitmask|((1 << index)-1));
+//	return setBit(ones, index, 0);
 //}
 //
-////2345515 3444441325 3444441325
-//ll overShoot(ll num, int index, ll u,ll n)
-//{
-//	for (int i = index; i >= 0; i--)
-//	{
-//		if (getBit(num, i) == 0/*&&getBit(n,i)!=1*/)
-//		{
-//			ll candidate = setBit(num, i, 1);
-//			if (candidate <= u)
-//			{
-//				num = candidate;
-//				break;
-//			}
-//		}
-//	}
-//	return num;
-//}
-//
-//ll overShootNonOnes(ll num, int index, ll u, ll n)
-//{
-//	for (int i = index; i >= 0; i--)
-//	{
-//		if (getBit(num, i) == 0&&getBit(n,i)==0)
-//		{
-//			ll candidate = setBit(num, i, 1);
-//			if (candidate <= u)
-//			{
-//				num = candidate;
-//			}
-//		}
-//
-//	}
-//	return num;
-//}
-//
-//// 2147483647
-//// 4294967295
 //int main()
 //{
-//	ll n, l, u;
-//	vector<ll> allOnes;
-//	ll x = 0;
-//	for (int i = 0; i < 63; i++)
+//	ll n, l, r;
+//	//freopen("out.txt", "w", stdout);
+//	while (cin >> n >> l >> r)
 //	{
-//		x = setBit(x,i,1);
-//		allOnes.push_back(x);
-//	}
-//	int index=63;
-//	while (cin >> n >> l >> u)
-//	{
-//		ll firstBigger=overShootNonOnes(0,63,u,n);
-//		//for (int i = 0; i < 63; i++)
-//		//{
-//		//	if (allOnes[i] >= u)
-//		//	{
-//		//		firstBigger = allOnes[i];
-//		//		index = i;
-//		//		break;
-//		//	}
-//		//}
+//		ll ans = r;
 //
-//		while (true)
+//		for (int i = 62; i >= 0; i--)
 //		{
-//			if (firstBigger <= u&&firstBigger >= l)
+//			if (getBit(n, i) && getBit(ans, i) && oneBits(ans, i) >= l)
 //			{
-//				firstBigger = closeOnesinn(firstBigger, index, n, u, l);
-//				firstBigger = overShootNonOnes(firstBigger, index, u, n);
-//				cout << firstBigger << endl;
-//				break;
+//				ans = oneBits(ans, i);
 //			}
-//			if (firstBigger > u)
-//				firstBigger = underShoot(firstBigger, index, l);
-//			else if (firstBigger < l)
-//				firstBigger = overShoot(firstBigger, index, u, n);
 //		}
+//
+//		for (int i = 62; i >= 0; i--)
+//		{
+//			if (!getBit(n, i) && !getBit(ans, i) && setBit(ans, i,1) <= r)
+//			{
+//				ans = setBit(ans, i, 1);
+//			}
+//		}
+//		cout << ans << endl;
 //	}
-//	return 0;
 //}
